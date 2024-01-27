@@ -144,3 +144,91 @@ CRITICAL - 2024-01-27 03:04:44 --> Invalid file: user/edit_user.php
 #6 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #7 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
 #8 {main}
+CRITICAL - 2024-01-27 09:45:25 --> Invalid argument supplied for foreach()
+#0 D:\buku\app\Views\book\view.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'D:\\buku\\app\\Vie...', 45, Array)
+#1 D:\buku\system\View\View.php(210): include('D:\\buku\\app\\Vie...')
+#2 D:\buku\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 D:\buku\system\Common.php(1089): CodeIgniter\View\View->render('book/view', Array, true)
+#4 D:\buku\app\Controllers\book.php(20): view('book/view', Array)
+#5 D:\buku\system\CodeIgniter.php(832): App\Controllers\book->index()
+#6 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\book))
+#7 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#10 {main}
+CRITICAL - 2024-01-27 10:16:34 --> Class 'App\Controllers\M_book' not found
+#0 D:\buku\system\CodeIgniter.php(832): App\Controllers\book->aksi_tambah()
+#1 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\book))
+#2 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#5 {main}
+ERROR - 2024-01-27 10:17:00 --> Unknown column 'updated_at' in 'field list'
+ERROR - 2024-01-27 10:20:16 --> Unknown column 'updated_at' in 'field list'
+CRITICAL - 2024-01-27 10:49:29 --> Invalid argument supplied for foreach()
+#0 D:\buku\app\Views\book\edit.php(136): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'D:\\buku\\app\\Vie...', 136, Array)
+#1 D:\buku\system\View\View.php(210): include('D:\\buku\\app\\Vie...')
+#2 D:\buku\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 D:\buku\system\Common.php(1089): CodeIgniter\View\View->render('book/edit', Array, true)
+#4 D:\buku\app\Controllers\book.php(77): view('book/edit', Array)
+#5 D:\buku\system\CodeIgniter.php(832): App\Controllers\book->edit('3')
+#6 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\book))
+#7 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#10 {main}
+CRITICAL - 2024-01-27 10:52:21 --> Class 'App\Controllers\M_user' not found
+#0 D:\buku\system\CodeIgniter.php(832): App\Controllers\book->update('3')
+#1 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\book))
+#2 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#5 {main}
+ERROR - 2024-01-27 11:36:29 --> Column 'nama_k' cannot be null
+ERROR - 2024-01-27 11:36:34 --> Column 'nama_k' cannot be null
+CRITICAL - 2024-01-27 11:38:34 --> Cannot use object of type stdClass as array
+#0 D:\buku\system\View\View.php(210): include()
+#1 D:\buku\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\buku\system\Common.php(1089): CodeIgniter\View\View->render('kategori/edit', Array, true)
+#3 D:\buku\app\Controllers\kategori.php(71): view('kategori/edit', Array)
+#4 D:\buku\system\CodeIgniter.php(832): App\Controllers\kategori->edit('2')
+#5 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\kategori))
+#6 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#9 {main}
+CRITICAL - 2024-01-27 11:42:42 --> Too few arguments to function App\Controllers\kategori::aksi_edit(), 0 passed in D:\buku\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 D:\buku\system\CodeIgniter.php(832): App\Controllers\kategori->aksi_edit()
+#1 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\kategori))
+#2 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#5 {main}
+CRITICAL - 2024-01-27 11:45:51 --> Too few arguments to function App\Controllers\kategori::aksi_edit(), 0 passed in D:\buku\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 D:\buku\system\CodeIgniter.php(832): App\Controllers\kategori->aksi_edit()
+#1 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\kategori))
+#2 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#5 {main}
+CRITICAL - 2024-01-27 11:46:53 --> Too few arguments to function App\Controllers\kategori::aksi_edit(), 0 passed in D:\buku\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 D:\buku\system\CodeIgniter.php(832): App\Controllers\kategori->aksi_edit()
+#1 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\kategori))
+#2 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#5 {main}
+CRITICAL - 2024-01-27 11:47:38 --> Too few arguments to function App\Controllers\kategori::aksi_edit(), 0 passed in D:\buku\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 D:\buku\system\CodeIgniter.php(832): App\Controllers\kategori->aksi_edit()
+#1 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\kategori))
+#2 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#5 {main}
+CRITICAL - 2024-01-27 11:49:08 --> Too few arguments to function App\Controllers\kategori::aksi_edit(), 0 passed in D:\buku\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 D:\buku\system\CodeIgniter.php(832): App\Controllers\kategori->aksi_edit()
+#1 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\kategori))
+#2 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#5 {main}

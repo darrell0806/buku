@@ -32,7 +32,7 @@ class M_model extends Model
     public function join2($table1, $table2, $on){
         return $this->db->table($table1)
         ->join($table2, $on, 'left')
-        ->orderBy("$table2.created_at", 'desc') 
+        ->orderBy("$table1.created_at", 'desc') 
         ->get()
         ->getResult();
     }

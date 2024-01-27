@@ -90,8 +90,8 @@ $logo = $builder->select('logo_website')
 
             
 
-                    <li class="sidebar-item <?php if($uri->getSegment(1) == "buku"){echo "active";}?>">
-                      <a href="<?=base_url('buku')?>" class='sidebar-link'>
+                    <li class="sidebar-item <?php if($uri->getSegment(1) == "book"){echo "active";}?>">
+                      <a href="<?=base_url('book')?>" class='sidebar-link'>
                         <i class="fa-solid fa-book"></i>
                         <span>Data Buku</span>
                       </a>
