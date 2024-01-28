@@ -60,7 +60,7 @@
                                        
                                         <td>
                                         
-                                        <a href="<?=base_url('/book/detail/'.$b->id_book)?>"><button class="btn btn-warning">Detail</button></a>
+                                        <a href="<?=base_url('/book/detail/'.$b->id_book)?>"><button class="btn btn-warning">Baca Online</button></a>
                                             <a href="<?=base_url('/book/edit/'.$b->id_book)?>"><button class="btn btn-primary">Edit</button></a>
                                             <a href="<?=base_url('/book/delete/'.$b->id_book)?>"><button class="btn btn-danger">Delete</button></a>
                                         </td>

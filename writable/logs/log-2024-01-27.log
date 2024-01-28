@@ -232,3 +232,19 @@ CRITICAL - 2024-01-27 11:49:08 --> Too few arguments to function App\Controllers
 #3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
 #5 {main}
+CRITICAL - 2024-01-27 23:30:23 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+#0 D:\buku\app\Controllers\peminjaman.php(17): App\Models\M_model->join3('peminjaman', 'book', 'user', 'peminjaman.id_b...', 'peminjaman.id_u...')
+#1 D:\buku\system\CodeIgniter.php(832): App\Controllers\peminjaman->index()
+#2 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\peminjaman))
+#3 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#6 {main}
+CRITICAL - 2024-01-27 23:30:56 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResultArray()
+#0 D:\buku\app\Controllers\peminjaman.php(17): App\Models\M_model->join3('peminjaman', 'book', 'user', 'peminjaman.id_b...', 'peminjaman.id_u...')
+#1 D:\buku\system\CodeIgniter.php(832): App\Controllers\peminjaman->index()
+#2 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\peminjaman))
+#3 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#6 {main}

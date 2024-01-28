@@ -185,11 +185,11 @@ class M_model extends Model
     public function getWhere2($table, $where){
         return $this->db->table($table)->getWhere($where)->getRowArray();
     }
-    public function join3($table1, $table2,$table3, $on,$on1,$where){
+    public function join3($table1, $table2,$table3, $on,$on1){
         return $this->db->table($table1)
         ->join($table2, $on, 'left')
         ->join($table3, $on1, 'left')
-        ->getWhere($where)
+        ->get() 
         ->getResult();
     }
     public function join4($table1, $table2, $table3, $table4, $on1, $on2, $on3)
@@ -229,6 +229,10 @@ class M_model extends Model
         $query = $builder->get();
         return $query->getResult();
     }
+    public function getpeminjamanById($id_peminjaman)
+    {
+        return $this->db->table('peminjaman')->where('id_peminjaman', $id_peminjaman)->get()->getRow();
+    }
     public function joint($table1, $table2, $on, $userLevel, $userId){
         $query = $this->db->table($table1)
         ->join($table2, $on, 'left');
@@ -256,14 +260,13 @@ class M_model extends Model
         ->get()
         ->getResult();
     }
-    public function filter2($table, $awal, $akhir, $status)
+    public function filter2($table, $awal, $akhir)
     {
         return $this->db->query("
             SELECT *
             FROM ".$table."
-            INNER JOIN kamar ON ".$table.".kamar = kamar.id_kamar
-            WHERE ".$table.".tgl_out BETWEEN '".$awal."' AND '".$akhir."'
-            AND ".$table.".status = '".$status."'
+            INNER JOIN level ON ".$table.".level = level.id_level
+            WHERE ".$table.".created_at BETWEEN '".$awal."' AND '".$akhir."'
             ")->getResult();
     }
     public function simpanDataNilai($data)
@@ -347,7 +350,28 @@ class M_model extends Model
     $query = $builder->get();
     return $query->getResult();
 }
-
+public function filter22($table, $awal, $akhir, $status)
+{
+    return $this->db->query("
+        SELECT peminjaman.*, book.nama_b, user.nama as nama
+        FROM ".$table."
+        INNER JOIN book ON peminjaman.id_book = book.id_book
+        INNER JOIN user ON peminjaman.id_user = user.id_user
+        WHERE peminjaman.tgl_pinjam BETWEEN '".$awal."' AND '".$akhir."'
+        AND peminjaman.status = '".$status."'
+    ")->getResult();
+}
+public function filter222($table, $awal, $akhir, $status)
+{
+    return $this->db->query("
+        SELECT peminjaman.*, book.nama_b, user.nama as nama
+        FROM ".$table."
+        INNER JOIN book ON peminjaman.id_book = book.id_book
+        INNER JOIN user ON peminjaman.id_user = user.id_user
+        WHERE peminjaman.tgl_kembali BETWEEN '".$awal."' AND '".$akhir."'
+        AND peminjaman.status = '".$status."'
+    ")->getResult();
+}
     public function getDataByFilter2($blok, $tahun, $rombel)
     {
         $builder = $this->db->table('absen');

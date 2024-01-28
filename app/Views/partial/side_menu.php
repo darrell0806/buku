@@ -88,8 +88,6 @@ $logo = $builder->select('logo_website')
 
             <li class="sidebar-title">Data Barang</li>
 
-            
-
                     <li class="sidebar-item <?php if($uri->getSegment(1) == "book"){echo "active";}?>">
                       <a href="<?=base_url('book')?>" class='sidebar-link'>
                         <i class="fa-solid fa-book"></i>
@@ -103,24 +101,56 @@ $logo = $builder->select('logo_website')
                       </a>
                     </li>
                     <li class="sidebar-item <?php if($uri->getSegment(1) == "kategori"){echo "active";}?>">
-  <a href="<?=base_url('kategori')?>" class='sidebar-link'>
-    <i class="fa-solid fa-list"></i>
-    <span>Data Kategori</span>
-  </a>
-</li>
-<li class="sidebar-item <?php if($uri->getSegment(1) == "like"){echo "active";}?>">
-  <a href="<?=base_url('like')?>" class='sidebar-link'>
-    <i class="fa-solid fa-heart"></i>
-    <span>Data Like</span>
-  </a>
-</li>
-<li class="sidebar-item <?php if($uri->getSegment(1) == "comment"){echo "active";}?>">
-  <a href="<?=base_url('comment')?>" class='sidebar-link'>
-    <i class="fa-solid fa-comment"></i>
-    <span>Data Comment</span>
-  </a>
-</li>
+                  <a href="<?=base_url('kategori')?>" class='sidebar-link'>
+                    <i class="fa-solid fa-list"></i>
+                    <span>Data Kategori</span>
+                  </a>
+                </li>
+                <li class="sidebar-item <?php if($uri->getSegment(1) == "like"){echo "active";}?>">
+                  <a href="<?=base_url('like')?>" class='sidebar-link'>
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Data Like</span>
+                  </a>
+                </li>
+                <li class="sidebar-item <?php if($uri->getSegment(1) == "comment"){echo "active";}?>">
+                  <a href="<?=base_url('comment')?>" class='sidebar-link'>
+                    <i class="fa-solid fa-comment"></i>
+                    <span>Data Comment</span>
+                  </a>
+                </li> 
+                <li class="sidebar-title">Laporan</li>
 
+                <li class="sidebar-item <?php if($uri->getSegment(1) == "laporan_user"){echo "active";}?>">
+                  <a href="<?=base_url('laporan_user')?>" class='sidebar-link'>
+                    <i class="fa-solid fa-person"></i>
+                    <span>Laporan User</span>
+                  </a>
+                </li>
+
+                <li class="sidebar-item <?php if($uri->getSegment(1) == "laporan_peminjaman"){echo "active";}?>">
+                  <a href="<?=base_url('laporan_peminjaman')?>" class='sidebar-link'>
+                    <i class="fa-regular fa-book"></i>
+                    <span>Laporan Peminjaman</span>
+                  </a>
+                </li>
+                <li class="sidebar-item <?php if($uri->getSegment(1) == "laporan_pengembalian"){echo "active";}?>">
+                  <a href="<?=base_url('laporan_pengembalian')?>" class='sidebar-link'>
+                    <i class="fa-regular fa-book"></i>
+                    <span>Laporan Pengembalian</span>
+                  </a>
+                </li>
+                <li class="sidebar-item <?php if($uri->getSegment(1) == "data_website"){echo "active";}?>">
+                  <a href="<?=base_url('data_website')?>" class='sidebar-link'>
+                    <i class="fa-regular fa-heart"></i>
+                    <span>Laporan Like</span>
+                  </a>
+                </li>
+                <li class="sidebar-item <?php if($uri->getSegment(1) == "data_website"){echo "active";}?>">
+                  <a href="<?=base_url('data_website')?>" class='sidebar-link'>
+                    <i class="fa-regular fa-comment"></i>
+                    <span>Laporan Comment</span>
+                  </a>
+                </li>
                   </li>
 
                 </li>

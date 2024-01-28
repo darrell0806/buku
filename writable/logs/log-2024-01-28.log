@@ -1,0 +1,46 @@
+ERROR - 2024-01-28 00:11:02 --> Unknown column 'tgl_kemmbali' in 'field list'
+ERROR - 2024-01-28 00:12:21 --> Unknown column 'tgl_kemmbali' in 'field list'
+CRITICAL - 2024-01-28 01:43:53 --> You must set the database table to be used with your query.
+#0 D:\buku\system\Model.php(545): CodeIgniter\Database\BaseConnection->table(NULL)
+#1 D:\buku\system\Model.php(722): CodeIgniter\Model->builder()
+#2 D:\buku\app\Controllers\peminjaman.php(87): CodeIgniter\Model->__call('getpeminjamanBy...', Array)
+#3 D:\buku\system\CodeIgniter.php(832): App\Controllers\peminjaman->aksi('5')
+#4 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\peminjaman))
+#5 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#8 {main}
+CRITICAL - 2024-01-28 02:33:10 --> Too few arguments to function App\Models\M_model::filter2(), 3 passed in D:\buku\app\Controllers\laporan_user.php on line 32 and exactly 4 expected
+#0 D:\buku\app\Controllers\laporan_user.php(32): App\Models\M_model->filter2('user', '2024-01-01 12:0...', '2024-01-31 12:0...')
+#1 D:\buku\system\CodeIgniter.php(832): App\Controllers\laporan_user->print_windows()
+#2 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\laporan_user))
+#3 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#6 {main}
+CRITICAL - 2024-01-28 02:33:23 --> Invalid file: v_u.php
+#0 D:\buku\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('v_u.php')
+#1 D:\buku\system\Common.php(1089): CodeIgniter\View\View->render('v_u', Array, true)
+#2 D:\buku\app\Controllers\laporan_user.php(33): view('v_u', Array)
+#3 D:\buku\system\CodeIgniter.php(832): App\Controllers\laporan_user->print_windows()
+#4 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\laporan_user))
+#5 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#8 {main}
+CRITICAL - 2024-01-28 03:02:41 --> Class 'Dompdf\Dompdf' not found
+#0 D:\buku\system\CodeIgniter.php(832): App\Controllers\laporan_user->pdf()
+#1 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\laporan_user))
+#2 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#5 {main}
+ERROR - 2024-01-28 03:39:50 --> Table 'buku.pemesanan' doesn't exist
+CRITICAL - 2024-01-28 03:39:50 --> Call to a member function getResult() on bool
+#0 D:\buku\app\Controllers\laporan_peminjaman.php(33): App\Models\M_model->filter22('pemesanan', '2024-01-01 12:0...', '2024-01-31 12:0...', 'Dipinjam')
+#1 D:\buku\system\CodeIgniter.php(832): App\Controllers\laporan_peminjaman->print_in()
+#2 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\laporan_peminjaman))
+#3 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#6 {main}
