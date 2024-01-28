@@ -14,4 +14,8 @@ class M_kategori extends Model
 	{
 		return $this->db->table($table1)->get()->getResult();
 	}
+	public function getKategoriById($id)
+    {
+        return $this->find($id);
+    }
 }

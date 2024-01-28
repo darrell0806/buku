@@ -77,7 +77,7 @@ $namaweb = $builder->select('nama_website')
             </div>
           </div>           
 
-          <!-- <div class="col-md-6">
+          <div class="col-md-6">
             <div class="card">
               <div class="card-header">
                 <h4>Aturan Sekolah</h4>
@@ -125,7 +125,7 @@ $namaweb = $builder->select('nama_website')
                   <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                  </a> -->
+                  </a>
 
                 </div>
               </div>
