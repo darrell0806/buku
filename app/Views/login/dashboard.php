@@ -76,8 +76,29 @@ $namaweb = $builder->select('nama_website')
               </div>
             </div>
           </div>           
-
+        
           <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h4>Galeri Perpustakaan</h4>
+                <p>Berikut ini beberapa galeri perpustakaan.</p>
+              </div>
+
+              <div class="card-body">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="<?=base_url('assets/compiled/jpg/building.jpg')?>" class="d-block w-100"/>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="<?=base_url('assets/compiled/jpg/architecture1.jpg')?>" class="d-block w-100"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          <!-- <div class="col-md-6">
             <div class="card">
               <div class="card-header">
                 <h4>Aturan Sekolah</h4>
@@ -131,6 +152,6 @@ $namaweb = $builder->select('nama_website')
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
     </div>

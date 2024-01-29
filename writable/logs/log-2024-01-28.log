@@ -44,3 +44,39 @@ CRITICAL - 2024-01-28 03:39:50 --> Call to a member function getResult() on bool
 #4 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
 #6 {main}
+ERROR - 2024-01-28 22:46:40 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'JOIN `kategori` ON `kategori`.`id_kategori` = `book`.`kategori`
+WHERE `book`....' at line 4
+CRITICAL - 2024-01-28 22:46:40 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\buku\app\Controllers\page.php(57): App\Models\M_book->getPostsByAlbumm('3', NULL)
+#1 C:\xampp\htdocs\buku\system\CodeIgniter.php(832): App\Controllers\page->viewBooks('3')
+#2 C:\xampp\htdocs\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\page))
+#3 C:\xampp\htdocs\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\buku\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-01-28 22:48:13 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\buku\app\Views\page\viewbook.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 5, Array)
+#1 C:\xampp\htdocs\buku\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\buku\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\buku\system\Common.php(1089): CodeIgniter\View\View->render('page/viewbook', Array, true)
+#4 C:\xampp\htdocs\buku\app\Controllers\page.php(63): view('page/viewbook', Array)
+#5 C:\xampp\htdocs\buku\system\CodeIgniter.php(832): App\Controllers\page->viewBooks('3')
+#6 C:\xampp\htdocs\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\page))
+#7 C:\xampp\htdocs\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\buku\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-01-28 23:24:13 --> Object of class App\Models\KoleksiModel could not be converted to string
+#0 C:\xampp\htdocs\buku\system\CodeIgniter.php(832): App\Controllers\book->masukkan_koleksi('1')
+#1 C:\xampp\htdocs\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\book))
+#2 C:\xampp\htdocs\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\buku\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-01-28 23:24:43 --> Object of class App\Models\KoleksiModel could not be converted to string
+#0 C:\xampp\htdocs\buku\system\CodeIgniter.php(832): App\Controllers\book->masukkan_koleksi('1')
+#1 C:\xampp\htdocs\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\book))
+#2 C:\xampp\htdocs\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\buku\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}

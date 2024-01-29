@@ -3,27 +3,33 @@
 namespace App\Controllers;
 use App\Models\M_model;
 use App\Models\M_book;
+use App\Models\KoleksiModel;
 class book extends BaseController
 {
     
     public function index()
     {
-        if(session()->get('id')>0) {
-           $model=new M_model();
-           
-           $on='book.kategori=kategori.id_kategori';
-           $data['a']=$model->join2('book', 'kategori', $on);
-           $data['title']='Data Buku';
-           echo view('partial/header_datatable', $data);
-        echo view('partial/side_menu');
-        echo view('partial/top_menu');
-           echo view('book/view', $data);
-           echo view('partial/footer_datatable');
-
-       }else{
-        return redirect()->to('login');
+        if (session()->get('id') > 0) {
+            $model = new M_model();
+               
+            $on = 'book.kategori = kategori.id_kategori';
+            $data['a'] = $model->join2('book', 'kategori', $on);
+            $data['title'] = 'Data Buku';
+    
+            // Dapatkan status koleksi dari database
+            $statusKoleksi = $model->getStatusKoleksi(session()->get('id'));
+            $data['statusKoleksi'] = $statusKoleksi;
+    
+            echo view('partial/header_datatable', $data);
+            echo view('partial/side_menu');
+            echo view('partial/top_menu');
+            echo view('book/view', $data);
+            echo view('partial/footer_datatable');
+        } else {
+            return redirect()->to('login');
+        }
     }
-}
+    
 public function tambah() {
         
     $model = new M_model();
@@ -124,5 +130,33 @@ public function detail($id) {
     echo view('book/detail', $data);
     echo view('partial/footer_datatable');
 }
+
+
+public function batalkan_koleksi($id_book)
+{
+    $model = new KoleksiModel();
+    $id_user = session()->get('id');
+    $condition = ['book_id' => $id_book, 'user_id' => $id_user];
+    $model->deleteKoleksi($condition);
+
+    // Redirect atau tampilkan pesan sukses
+    return redirect()->to('/book');
+}
+
+    public function masukkan_koleksi($id_book)
+    {
+        $model = new KoleksiModel();
+        $id_user = session()->get('id'); // Ganti sesuai dengan bagaimana Anda mengelola user session
+        $data = [
+            'book_id' => $id_book,
+            'user_id' => $id_user,
+            'status'  => 'Masuk',
+        ];
+
+        $model->insertKoleksi($data);
+
+        // Redirect atau tampilkan pesan sukses
+        return redirect()->to('/book');
+    }
 
 }

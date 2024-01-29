@@ -28,7 +28,14 @@ class M_model extends Model
     public function qedit($table, $data, $where){
         return $this->db->table($table)->update($data, $where);
     }
-
+    public function getStatusKoleksi($userId)
+    {
+        $koleksiModel = new KoleksiModel();
+        $statusKoleksi = $koleksiModel->where(['user_id' => $userId])->first();
+    
+        // Periksa apakah statusKoleksi ada, jika tidak, berikan nilai default
+        return $statusKoleksi ? $statusKoleksi['status'] : 'Default';
+    }
     public function join2($table1, $table2, $on){
         return $this->db->table($table1)
         ->join($table2, $on, 'left')

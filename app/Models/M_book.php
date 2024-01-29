@@ -20,11 +20,11 @@ class M_book extends Model
 		return $this->db->table($table)->update($data, $where);
 	}
 	
-    public function getPostsByAlbumm($id_album, $userId)
+    public function getPostsByAlbumm($id_album)
     {
         $builder = $this->db->table('book');
         $builder->select('book.*, koleksi.status AS like_status, kategori.nama_k');
-        $builder->join('koleksi', 'koleksi.book_id = book.id_book AND koleksi.user_id = ' . $userId, 'left');
+        $builder->join('koleksi', 'koleksi.book_id = book.id_book', 'left');
         $builder->join('kategori', 'kategori.id_kategori = book.kategori', 'left'); // Join dengan tabel kategori
         $builder->where('book.kategori', $id_album);
         return $builder->get()->getResult();

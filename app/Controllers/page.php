@@ -10,7 +10,7 @@ class page extends BaseController
 
     public function index()
     {
-       if(session()->get('level')== 1) {
+      
         
         $postModel = new M_book();
         $albumModel = new M_kategori();
@@ -22,9 +22,7 @@ class page extends BaseController
        
         echo view('page/view', $data);
         echo view('partial/footer_datatable');
-    }else {
-        return redirect()->to('login');
-    }
+    
 }
  private function getAlbumsWithPosts(M_book $postModel, M_kategori $albumModel)
     {
@@ -47,7 +45,7 @@ class page extends BaseController
     public function viewBooks($id_album)
     {
         $postModel = new M_book();
-        $userId = session()->get('id');
+       
         
         // Mendapatkan data kategori
         $kategoriModel = new M_kategori();
@@ -56,13 +54,14 @@ class page extends BaseController
         $data = [
             'id_kategori' => $id_album,
             'nama_k' => $kategoriInfo['nama_k'], // Menggunakan informasi nama_k dari hasil query
-            'photos' => $postModel->getPostsByAlbumm($id_album, $userId),
+            'photos' => $postModel->getPostsByAlbumm($id_album),
         ];
     
         echo view('partial/header_datatable');
        
         echo view('page/viewbook', $data);
         echo view('partial/footer_datatable');
+  
     }
     
 }

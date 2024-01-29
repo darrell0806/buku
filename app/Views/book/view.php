@@ -63,6 +63,16 @@
                                         <a href="<?=base_url('/book/detail/'.$b->id_book)?>"><button class="btn btn-warning">Baca Online</button></a>
                                             <a href="<?=base_url('/book/edit/'.$b->id_book)?>"><button class="btn btn-primary">Edit</button></a>
                                             <a href="<?=base_url('/book/delete/'.$b->id_book)?>"><button class="btn btn-danger">Delete</button></a>
+                                            <?php if ($statusKoleksi === 'Masuk') : ?>
+                                            <a href="<?= base_url('/book/batalkan_koleksi/' . $b->id_book) ?>">
+                                                <button class="btn btn-danger">Batalkan Koleksi</button>
+                                            </a>
+                                        <?php else : ?>
+                                            <a href="<?= base_url('/book/masukkan_koleksi/' . $b->id_book) ?>">
+                                                <button class="btn btn-primary">Masukkan Koleksi</button>
+                                            </a>
+                                        <?php endif; ?>
+
                                         </td>
 
                                     </tr>
