@@ -10,7 +10,7 @@ class kategori extends BaseController
 
     public function index()
     {
-       if(session()->get('level')== 1) {
+        if (session()->get('id') > 0) {
         $model=new M_model();
         $data['jojo']=$model->tampil('kategori');
         $data['title']='Data Kategori';
@@ -27,7 +27,7 @@ class kategori extends BaseController
 public function tambah() {
         
         $model = new M_model();
-        if (session()->get('level') == 1) {
+        if (session()->get('id') > 0) {
             
       
         $data['title'] = 'Tambah Kategori';

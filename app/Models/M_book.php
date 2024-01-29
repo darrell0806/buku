@@ -79,7 +79,10 @@ class M_book extends Model
         }
         return $this->update($id, $data);
     }
-
+    public function getPostById($postId)
+    {
+        return $this->find($postId);
+    }
     public function deletee($id)
     {
         return $this->delete($id);

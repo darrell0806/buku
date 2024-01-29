@@ -8,7 +8,7 @@ class KoleksiModel extends Model
 {
     protected $table = 'koleksi';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['book_id', 'user_id', 'status'];
+    protected $allowedFields = ['book_id', 'user_id', 'status','created_at'];
 
     public function getKoleksiById($id_koleksi)
     {

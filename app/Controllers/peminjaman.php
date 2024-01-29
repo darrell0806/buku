@@ -10,7 +10,7 @@ class peminjaman extends BaseController
 
     public function index()
     {
-       if(session()->get('level')== 1) {
+        if (session()->get('id') > 0) {
         $model=new M_model();
         $on = 'peminjaman.id_book = book.id_book';
         $on1 = 'peminjaman.id_user = user.id_user';
@@ -29,7 +29,7 @@ class peminjaman extends BaseController
 }
 public function tambah()
 {
-    if(session()->get('level')== 1) {
+    if (session()->get('id') > 0) {
         $model=new M_model();
         $data['a']=$model->tampil('user');
         $data['c']=$model->tampil('book');
@@ -46,7 +46,7 @@ public function tambah()
 
 public function aksi_tambah()
 { 
-    if(session()->get('level')== 1) {
+    if (session()->get('id') > 0) {
         $a= $this->request->getPost('user');
         $b= $this->request->getPost('book');
         $c= $this->request->getPost('tgl_kembali');
@@ -72,7 +72,7 @@ public function aksi_tambah()
 }
 public function delete($id)
 { 
-    if(session()->get('level')== 1) {
+    if (session()->get('id') > 0) {
      $model=new m_model();
      $where=array('id_peminjaman'=>$id);
      $model->hapus('peminjaman',$where);

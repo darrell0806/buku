@@ -1,7 +1,7 @@
 <?php namespace App\Models;
 
 use CodeIgniter\Model;
-
+use App\Models\KoleksiModel;
 class M_model extends Model
 {
     public function tampil($table) {
@@ -28,10 +28,10 @@ class M_model extends Model
     public function qedit($table, $data, $where){
         return $this->db->table($table)->update($data, $where);
     }
-    public function getStatusKoleksi($userId)
+    public function getStatusKoleksi($bookId)
     {
         $koleksiModel = new KoleksiModel();
-        $statusKoleksi = $koleksiModel->where(['user_id' => $userId])->first();
+        $statusKoleksi = $koleksiModel->where(['book_id' => $bookId])->first();
     
         // Periksa apakah statusKoleksi ada, jika tidak, berikan nilai default
         return $statusKoleksi ? $statusKoleksi['status'] : 'Default';
@@ -276,6 +276,15 @@ class M_model extends Model
             WHERE ".$table.".created_at BETWEEN '".$awal."' AND '".$akhir."'
             ")->getResult();
     }
+    public function filterbku($table, $awal, $akhir)
+    {
+        return $this->db->query("
+            SELECT *
+            FROM ".$table."
+            INNER JOIN kategori ON ".$table.".kategori = kategori.id_kategori
+            WHERE ".$table.".created_at BETWEEN '".$awal."' AND '".$akhir."'
+            ")->getResult();
+    }
     public function simpanDataNilai($data)
 {
     // Lakukan operasi penyimpanan ke dalam tabel nilai
@@ -377,6 +386,26 @@ public function filter222($table, $awal, $akhir, $status)
         INNER JOIN user ON peminjaman.id_user = user.id_user
         WHERE peminjaman.tgl_kembali BETWEEN '".$awal."' AND '".$akhir."'
         AND peminjaman.status = '".$status."'
+    ")->getResult();
+}
+public function filtersi($table, $awal, $akhir)
+{
+    return $this->db->query("
+        SELECT koleksi.*, book.nama_b, user.nama as nama
+        FROM ".$table."
+        INNER JOIN book ON koleksi.book_id = book.id_book
+        INNER JOIN user ON koleksi.user_id = user.id_user
+        WHERE koleksi.created_at BETWEEN '".$awal."' AND '".$akhir."'
+    ")->getResult();
+}
+public function filtersip($table, $awal, $akhir)
+{
+    return $this->db->query("
+        SELECT comments.*, book.nama_b, user.nama as nama
+        FROM ".$table."
+        INNER JOIN book ON comments.book_id = book.id_book
+        INNER JOIN user ON comments.user_id = user.id_user
+        WHERE comments.created_at BETWEEN '".$awal."' AND '".$akhir."'
     ")->getResult();
 }
     public function getDataByFilter2($blok, $tahun, $rombel)

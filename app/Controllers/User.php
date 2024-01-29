@@ -10,7 +10,7 @@ class User extends BaseController
 
     public function index()
     {
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
+        if (session()->get('level') == 1 ) {
             $model = new M_user();
             $on = 'user.level=level.id_level';
 

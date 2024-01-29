@@ -4,6 +4,8 @@ namespace App\Controllers;
 use App\Models\M_model;
 use App\Models\M_book;
 use App\Models\KoleksiModel;
+use App\Models\CommentModel;
+
 class book extends BaseController
 {
     
@@ -16,9 +18,11 @@ class book extends BaseController
             $data['a'] = $model->join2('book', 'kategori', $on);
             $data['title'] = 'Data Buku';
     
-            // Dapatkan status koleksi dari database
-            $statusKoleksi = $model->getStatusKoleksi(session()->get('id'));
-            $data['statusKoleksi'] = $statusKoleksi;
+
+            foreach ($data['a'] as &$book) {
+                $bookId = $book->id_book; // Use -> for object properties
+                $book->statusKoleksi = $model->getStatusKoleksi($bookId);
+            }
     
             echo view('partial/header_datatable', $data);
             echo view('partial/side_menu');
@@ -151,6 +155,7 @@ public function batalkan_koleksi($id_book)
             'book_id' => $id_book,
             'user_id' => $id_user,
             'status'  => 'Masuk',
+            'created_at'=>date('Y-m-d H:i:s'),
         ];
 
         $model->insertKoleksi($data);
@@ -158,5 +163,43 @@ public function batalkan_koleksi($id_book)
         // Redirect atau tampilkan pesan sukses
         return redirect()->to('/book');
     }
+    public function commentForm($postId)
+    {
+        $postModel = new M_book();
+        $commentModel = new CommentModel();
+        
+        $post = $postModel->getPostById($postId); // Menggunakan $postId
+        $comments = $commentModel->getCommentsByPost($postId); // Menggunakan $postId
+        
+        $data = [
+            'book_id' => $postId,
+            'post' => $post,
+            'comments' => $comments,
+        ];
+        
+        $data['title'] = 'Ulasan';
 
+        echo view('partial/header_datatable',$data);
+        echo view('partial/side_menu');
+        echo view('partial/top_menu');
+        echo view('comment_form', $data);
+        echo view('partial/footer_datatable');
+    }
+    public function submitComment()
+    {
+        $commentModel = new CommentModel();
+        $userId = session()->get('id');
+        $postId = $this->request->getPost('post_id');
+        $commentText = $this->request->getPost('comment');
+    
+        // Simpan komentar ke database menggunakan CommentModel
+        $commentModel->addComment(['user_id' => $userId, 'book_id' => $postId, 'comment' => $commentText]);
+    
+        // Redirect kembali ke halaman viewAlbum dengan menyertakan id_album
+        $postModel = new M_book();
+        $post = $postModel->getPostById($postId);
+       
+    
+        return redirect()->to(base_url('/book/commentForm/' . $postId));
+    }
 }

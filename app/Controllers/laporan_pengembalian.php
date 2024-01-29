@@ -38,7 +38,7 @@ class laporan_pengembalian extends BaseController
 	}
     public function pdf_in()
 	{
-		if(session()->get('level')==1 ||  session()->get('level')==2  ||  session()->get('level')==3 ||  session()->get('level')==4){
+		if(session()->get('level')==1 ||  session()->get('level')==2  ){
             $model = new M_model();
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
@@ -55,7 +55,7 @@ class laporan_pengembalian extends BaseController
 	}
     public function excel_in()
 	{
-		if(session()->get('level')==1 ||  session()->get('level')==2  ||  session()->get('level')==3 ||  session()->get('level')==4){
+		if(session()->get('level')==1 ||  session()->get('level')==2  ){
             $model = new M_model();
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
