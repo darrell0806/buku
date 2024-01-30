@@ -9,24 +9,32 @@ class peminjaman extends BaseController
 {
 
     public function index()
-    {
-        if (session()->get('id') > 0) {
-        $model=new M_model();
-        $on = 'peminjaman.id_book = book.id_book';
-        $on1 = 'peminjaman.id_user = user.id_user';
-        $data['a'] = $model->join3('peminjaman', 'book','user', $on,$on1);
- 
-        $data['title']='Data Peminjaman';
+{
+    if (session()->get('id') > 0) {
+        $model = new M_model();
+        $userLevel = session()->get('level');
+
+        if ($userLevel == 1 || $userLevel == 2) {
+            $on = 'peminjaman.id_book = book.id_book';
+            $on1 = 'peminjaman.id_user = user.id_user';
+            $data['a'] = $model->join3('peminjaman', 'book', 'user', $on, $on1);
+        } elseif ($userLevel == 3) {
+            $userId = session()->get('id');
+            $data['a'] = $model->getDataByIdUser($userId);
+        }
+
+        $data['title'] = 'Data Peminjaman';
 
         echo view('partial/header_datatable', $data);
         echo view('partial/side_menu');
         echo view('partial/top_menu');
         echo view('peminjaman/view', $data);
         echo view('partial/footer_datatable');
-    }else {
+    } else {
         return redirect()->to('login');
     }
 }
+
 public function tambah()
 {
     if (session()->get('id') > 0) {

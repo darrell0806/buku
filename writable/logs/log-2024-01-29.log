@@ -159,3 +159,13 @@ CRITICAL - 2024-01-29 11:33:03 --> Class 'App\Controllers\M_model' not found
 #3 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #4 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
 #5 {main}
+CRITICAL - 2024-01-29 18:54:23 --> syntax error, unexpected end of file
+#0 D:\buku\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 D:\buku\system\Common.php(1089): CodeIgniter\View\View->render('book/view', Array, true)
+#2 D:\buku\app\Controllers\book.php(30): view('book/view', Array)
+#3 D:\buku\system\CodeIgniter.php(832): App\Controllers\book->index()
+#4 D:\buku\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\book))
+#5 D:\buku\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\buku\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 D:\buku\system\Commands\Server\rewrite.php(43): require_once('D:\\buku\\public\\...')
+#8 {main}

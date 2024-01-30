@@ -388,6 +388,36 @@ public function filter222($table, $awal, $akhir, $status)
         AND peminjaman.status = '".$status."'
     ")->getResult();
 }
+
+
+public function getKoleksiDataByIdUser($userId)
+{
+    return $this->db->table('koleksi')
+        ->join('book', 'koleksi.book_id = book.id_book')
+        ->join('user', 'koleksi.user_id = user.id_user')
+        ->where('koleksi.user_id', $userId)
+        ->get()
+        ->getResult();
+}
+
+public function getDataByIdUser($userId)
+{
+    return $this->db->table('peminjaman')
+        ->join('book', 'peminjaman.id_book = book.id_book')
+        ->join('user', 'peminjaman.id_user = user.id_user')
+        ->where('peminjaman.id_user', $userId)
+        ->get()
+        ->getResult();
+}
+public function getCommentsDataByIdUser($userId)
+{
+    return $this->db->table('comments')
+        ->join('book', 'comments.book_id = book.id_book')
+        ->join('user', 'comments.user_id = user.id_user')
+        ->where('comments.user_id', $userId)
+        ->get()
+        ->getResult();
+}
 public function filtersi($table, $awal, $akhir)
 {
     return $this->db->query("
