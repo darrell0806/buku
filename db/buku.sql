@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2024 at 06:34 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Waktu pembuatan: 30 Jan 2024 pada 02.26
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book`
+-- Struktur dari tabel `book`
 --
 
 CREATE TABLE `book` (
@@ -42,16 +42,41 @@ CREATE TABLE `book` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `book`
+-- Dumping data untuk tabel `book`
 --
 
 INSERT INTO `book` (`id_book`, `nama_b`, `cover`, `penulis`, `penerbit`, `tahun`, `sipnopsis`, `stok`, `link`, `kategori`, `created_at`) VALUES
-(1, 'Kedamaian', 'fight.png', 'Darrell', 'Da.co.book', '2024', 'Ya gimana ya', '8', 'https://drive.google.com/file/d/1BLmvOee8urKRZIUY_VNSsVpGVsqcuv7U/view?usp=drive_link', 3, '2024-01-27 22:36:57');
+(1, 'Kedamaian', 'fight.png', 'Darrell', 'Da.co.book', '2024', 'Ya gimana ya', '8', 'https://drive.google.com/file/d/1BLmvOee8urKRZIUY_VNSsVpGVsqcuv7U/view?usp=drive_link', 3, '2024-01-27 22:36:57'),
+(4, 'Pergi', 'pergi.png', 'Tere Liye', 'da.co.book', '2022', 'Ya', '7', 'tes.com', 1, '2024-01-29 08:15:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `comments`
+--
+
+INSERT INTO `comments` (`id`, `book_id`, `user_id`, `comment`, `created_at`) VALUES
+(1, 4, 4, 'Halo', '2024-01-29 09:24:11'),
+(2, 4, 1, 'Oke dah ya\r\n', '2024-01-29 09:24:26'),
+(3, 1, 1, 'P', '2024-01-29 09:26:27'),
+(4, 4, 1, 'put putt', '2024-01-29 19:17:24');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -61,7 +86,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_k`, `created_at`) VALUES
@@ -71,20 +96,29 @@ INSERT INTO `kategori` (`id_kategori`, `nama_k`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `koleksi`
+-- Struktur dari tabel `koleksi`
 --
 
 CREATE TABLE `koleksi` (
   `id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `status` text NOT NULL
+  `status` text NOT NULL,
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `koleksi`
+--
+
+INSERT INTO `koleksi` (`id`, `book_id`, `user_id`, `status`, `created_at`) VALUES
+(9, 1, 1, 'Masuk', '2024-01-29 08:52:26'),
+(10, 1, 4, 'Masuk', '2024-01-30 07:50:35');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Struktur dari tabel `level`
 --
 
 CREATE TABLE `level` (
@@ -96,7 +130,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `level`
+-- Dumping data untuk tabel `level`
 --
 
 INSERT INTO `level` (`id_level`, `nama_level`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -107,7 +141,7 @@ INSERT INTO `level` (`id_level`, `nama_level`, `created_at`, `updated_at`, `dele
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peminjaman`
+-- Struktur dari tabel `peminjaman`
 --
 
 CREATE TABLE `peminjaman` (
@@ -121,15 +155,16 @@ CREATE TABLE `peminjaman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `peminjaman`
+-- Dumping data untuk tabel `peminjaman`
 --
 
 INSERT INTO `peminjaman` (`id_peminjaman`, `id_user`, `id_book`, `tgl_pinjam`, `tgl_kembali`, `jumlah`, `status`) VALUES
 (6, 1, 1, '2024-01-28', '2024-01-28', '1', 'Dikembalikan'),
-(7, 2, 1, '2024-01-28', '2024-01-28', '2', 'Dipinjam');
+(7, 2, 1, '2024-01-28', '2024-01-28', '2', 'Dipinjam'),
+(8, 4, 4, '2024-01-29', '2024-02-08', '3', 'Dipinjam');
 
 --
--- Triggers `peminjaman`
+-- Trigger `peminjaman`
 --
 DELIMITER $$
 CREATE TRIGGER `hapus` AFTER DELETE ON `peminjaman` FOR EACH ROW BEGIN
@@ -157,7 +192,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -174,17 +209,18 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `email`, `level`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Admin', 'Admin', 'c4ca4238a0b923820dcc509a6f75849b', 'admin@gmail.com', 1, 'default.png', '2024-01-27 14:27:19', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'Petugas', 'Petugas', '0cc175b9c0f1b6a831c399e269772661', 'petugas@gmail.com', 2, 'default.png', '2024-01-27 02:55:31', '2024-01-27 03:12:07', '0000-00-00 00:00:00');
+(2, 'Petugas', 'Petugas', '0cc175b9c0f1b6a831c399e269772661', 'petugas@gmail.com', 2, 'default.png', '2024-01-27 02:55:31', '2024-01-27 03:12:07', '0000-00-00 00:00:00'),
+(4, 'Darrell', 'Darrell', 'c4ca4238a0b923820dcc509a6f75849b', 'darrell@gmail.com', 3, 'default.png', '2024-01-29 09:28:41', '2024-01-29 09:28:41', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `website`
+-- Struktur dari tabel `website`
 --
 
 CREATE TABLE `website` (
@@ -205,7 +241,7 @@ CREATE TABLE `website` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `website`
+-- Dumping data untuk tabel `website`
 --
 
 INSERT INTO `website` (`id_website`, `nama_website`, `logo_website`, `logo_pdf`, `favicon_website`, `komplek`, `jalan`, `kelurahan`, `kecamatan`, `kota`, `kode_pos`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -216,89 +252,101 @@ INSERT INTO `website` (`id_website`, `nama_website`, `logo_website`, `logo_pdf`,
 --
 
 --
--- Indexes for table `book`
+-- Indeks untuk tabel `book`
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`id_book`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `koleksi`
+-- Indeks untuk tabel `koleksi`
 --
 ALTER TABLE `koleksi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `level`
+-- Indeks untuk tabel `level`
 --
 ALTER TABLE `level`
   ADD PRIMARY KEY (`id_level`);
 
 --
--- Indexes for table `peminjaman`
+-- Indeks untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`id_peminjaman`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `website`
+-- Indeks untuk tabel `website`
 --
 ALTER TABLE `website`
   ADD PRIMARY KEY (`id_website`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `book`
+-- AUTO_INCREMENT untuk tabel `book`
 --
 ALTER TABLE `book`
-  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `koleksi`
+-- AUTO_INCREMENT untuk tabel `koleksi`
 --
 ALTER TABLE `koleksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `level`
+-- AUTO_INCREMENT untuk tabel `level`
 --
 ALTER TABLE `level`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `peminjaman`
+-- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `website`
+-- AUTO_INCREMENT untuk tabel `website`
 --
 ALTER TABLE `website`
   MODIFY `id_website` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
