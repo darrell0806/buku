@@ -50,7 +50,10 @@ public function aksi_create()
         );
         $model=new M_level();
         $model->simpan('level', $data1);
-       
+        echo view('partial/header_datatable');
+        echo view('partial/side_menu');
+        echo view('partial/top_menu');
+        echo view('partial/footer_datatable');
         return redirect()->to('data_level');
     }else {
         return redirect()->to('login');
